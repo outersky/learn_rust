@@ -46,4 +46,18 @@ mod {
 事实上这个方法更加推荐,可以缩小对其他mod的污染.
 
 
+### 宏
 
+* 宏可以展开,调用命令:
+```
+cargo rustc  -- -Z unstable-options --pretty expanded
+```
+就可以看到宏被扩展以后的效果. 这样可以根据清楚的知道最终生成的代码是什么样子的.
+
+如果代码中有多个bin或者example, 可以加参数指定:
+
+```
+cargo rustc --bin show_people -- -Z unstable-options --pretty expanded
+```
+
+这样就对 src/bin/show_people.rs 进行相关的宏展开.
