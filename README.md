@@ -36,7 +36,7 @@ let s = r###"
 
 字符串前后的#的数量一致就行了.
 
-还有一些其他的写法,参见: [rust reference #Strings](https://doc.rust-lang.org/reference.html#characters-and-strings characters-and-strings)
+还有一些其他的写法,参见: [rust reference #Strings](https://doc.rust-lang.org/reference.html#characters-and-strings)
 
 ###rust文档查看
 
