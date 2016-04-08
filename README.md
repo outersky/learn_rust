@@ -15,6 +15,29 @@ let mut s1 = "hello".to_owned();
 let s2 = s1 + "world"; //
 ```
 
+* 多行字符串
+
+rust中一个方便的功能就是可以写多行的字符串,不用傻乎乎的一行行拼接了,如:
+```rust
+let s = r#"
+    悄悄的
+    我来了
+"#
+```
+
+如果不幸你的长文本中也有#符号,那么可以这样多写几个:
+
+```rust
+let s = r###"
+    悄悄的#
+    我来了#
+"###
+```
+
+字符串前后的#的数量一致就行了.
+
+还有一些其他的写法,参见: [rust reference #Strings](https://doc.rust-lang.org/reference.html#characters-and-strings characters-and-strings)
+
 ###rust文档查看
 
 * 要看一个对象有那些方法可以调用,需要查看rust的api文档.
@@ -22,6 +45,15 @@ let s2 = s1 + "world"; //
 一般可以看某个mod 里面有那些静态方法, 或者struct里面有哪些实例方法.
 
 但是有一些特殊的情况,文档中不一定看得到,比如 ToString 这个trait里面, 有to_string()这个方法. 文档下面说明了,对任何实现 Display 这个trait的,都默认实现了, 但是你看任何对象的api,都看不出来可以调用 .to_string() 方法.
+
+所以,只要实现过Display的,都可以用to_string来变成字符串:
+
+```rust
+let a = 100;
+let s = a.to_string();
+let s2 = s + ", hi"; // 这里会调用: String.add(&str)
+println!("{}", s2);
+```
 
 
 
